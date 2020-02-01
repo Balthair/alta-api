@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Http\Requests\UserRequest;
+use App\CorporateAnualInformation;
+use Illuminate\Http\Request;
 
-class UserController extends Controller
-{  
-    public $loginAfterSignUp = true;
-    
+class CorporateAnualInformationController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = new User;
-        return $user->getAll();
+        //
     }
 
     /**
@@ -33,34 +30,32 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\UserRequest $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $user = new User;
-        $user->add($request->validated());
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\CorporateAnualInformation  $corporateAnualInformation
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CorporateAnualInformation $corporateAnualInformation)
     {
-        $user = new User;
-        return $user->getById($id);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\CorporateAnualInformation  $corporateAnualInformation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CorporateAnualInformation $corporateAnualInformation)
     {
         //
     }
@@ -68,11 +63,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\UserRequest $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\CorporateAnualInformation  $corporateAnualInformation
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, CorporateAnualInformation $corporateAnualInformation)
     {
         //
     }
@@ -80,12 +75,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\CorporateAnualInformation  $corporateAnualInformation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CorporateAnualInformation $corporateAnualInformation)
     {
-        $user = new User;
-        $user->drop($id);
+        //
     }
 }
