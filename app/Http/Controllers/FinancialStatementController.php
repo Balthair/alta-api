@@ -49,7 +49,7 @@ class FinancialStatementController extends Controller
      * @param  \App\FinancialStatement  $financialStatement
      * @return \Illuminate\Http\Response
      */
-    public function update(FinancialStatementRequest $request, FinancialStatement $financialStatement)
+    public function update(FinancialStatementRequest $request)
     {
         $fs = new FinancialStatement;
         $fs->updateRecord($request);
@@ -64,6 +64,6 @@ class FinancialStatementController extends Controller
     public function destroy($id)
     {
         $fs = new FinancialStatement;
-        $fs->drop(($id));
+        $fs->drop($id);
     }
 }

@@ -17,7 +17,7 @@ class FinancialStatement extends Model
     }
 
     public function add($data){
-        return $this->create($data)
+        return $this->create($data);
     }
 
     public function updateRecord($data){
