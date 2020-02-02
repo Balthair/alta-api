@@ -16,7 +16,7 @@ class AddColumnsToEmployeeCompanyTable extends Migration
         Schema::table('employee_companies', function (Blueprint $table) {
             $table->boolean('have_works_council');
             $table->text('applicable_collective_agreements');
-            $table->timestamp('demographic_date');
+            $table->timestamp('demographic_date')->nullable();
         });
     }
 
