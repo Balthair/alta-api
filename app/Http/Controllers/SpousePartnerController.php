@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\FinancialStatement;
+use App\SpousePartner;
 use Illuminate\Http\Request;
-use App\Http\Requests\FinancialStatementsRequest;
+use App\Http\Requests\SpousePartnerRequest;
 
-class FinancialStatementController extends Controller
+class SpousePartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class FinancialStatementController extends Controller
      */
     public function index()
     {
-        $fs = new FinancialStatement;
-        return $fs->getAll();
+        $sp = new SpousePartner;
+        return $sp->getAll();
     }
 
     /**
@@ -25,46 +25,46 @@ class FinancialStatementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FinancialStatementsRequest $request)
+    public function store(SpousePartnerRequest $request)
     {
-        $fs = new FinancialStatement;
-        return $fs->add($request->validated());
+        $sp = new SpousePartner;
+        return $sp->add($request->validated());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\SpousePartner  $spousePartner
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $fs = new FinancialStatement;
-        return $fs->getById($id);
+        $sp = new SpousePartner;
+        return $sp->getById($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\SpousePartner  $spousePartner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $fs = new FinancialStatement;
-        return $fs->updateRecord($request);
+        $sp = new SpousePartner;
+        return $sp->updateRecord($id, $request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\SpousePartner  $spousePartner
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $fs = new FinancialStatement;
-        return $fs->drop($id);
+        $sp = new SpousePartner;
+        $sp->drop($id);
     }
 }

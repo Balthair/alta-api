@@ -8,7 +8,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class FinancialStatementsRequest extends FormRequest
+class SpousePartnerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,20 +28,18 @@ class FinancialStatementsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'description' => 'max:255',
+            "name" => 'required|max:255',
+            "description" => "max:255"
         ];
     }
 
-    public function messages()
-    {
+    public function messages(){
         return [
-            'name.required' => 'Name is required!'
+            "name.required" => "Name is required!"
         ];
     }
 
-    protected function failedValidation(Validator $validator)
-    {
+    protected function failedValidation(Validator $validator) {
         $errors = (new ValidationException($validator))->errors();
 
         throw new HttpResponseException(

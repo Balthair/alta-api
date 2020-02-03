@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\FinancialStatement;
+use App\ParticipantType;
 use Illuminate\Http\Request;
-use App\Http\Requests\FinancialStatementsRequest;
+use App\Http\Requests\ParticipantTypeRequest;
 
-class FinancialStatementController extends Controller
+class ParticipantTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class FinancialStatementController extends Controller
      */
     public function index()
     {
-        $fs = new FinancialStatement;
-        return $fs->getAll();
+        $pType = new ParticipantType;
+        return $pType->getAll();
     }
 
     /**
@@ -25,46 +25,46 @@ class FinancialStatementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FinancialStatementsRequest $request)
+    public function store(ParticipantTypeRequest $request)
     {
-        $fs = new FinancialStatement;
-        return $fs->add($request->validated());
+        $pType = new ParticipantType;
+        return $pType->add($request->validated());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\ParticipantType  $participantType
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $fs = new FinancialStatement;
-        return $fs->getById($id);
+        $pType = new ParticipantType;
+        return $pType->getById($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\ParticipantType  $participantType
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $fs = new FinancialStatement;
-        return $fs->updateRecord($request);
+        $pType = new ParticipantType;
+        return $pType->updateRecord($request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\ParticipantType  $participantType
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $fs = new FinancialStatement;
-        return $fs->drop($id);
+        $pType = new ParticipantType;
+        return $pType->drop($id);
     }
 }

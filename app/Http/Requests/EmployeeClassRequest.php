@@ -8,7 +8,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class FinancialStatementsRequest extends FormRequest
+class EmployeeClassRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,6 +31,7 @@ class FinancialStatementsRequest extends FormRequest
             'name' => 'required|max:255',
             'description' => 'max:255',
         ];
+
     }
 
     public function messages()
