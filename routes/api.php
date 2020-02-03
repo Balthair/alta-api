@@ -25,6 +25,7 @@ Route::resource('participant-criterias','ParticipantCriteriaController')->middle
 Route::resource('spouse-partners','SpousePartnerController')->middleware('auth:api');
 Route::resource('benefit-programs','BenefitProgramController')->middleware('auth:api');
 Route::resource('same-sexs','SameSexController')->middleware('auth:api');
+Route::resource('benefit-forms','BenefitFormController')->middleware('auth:api');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
