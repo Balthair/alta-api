@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\FinancialStatement;
-use App\Http\Requests\FinancialStatementsRequest;
+use App\EmployeeClass;
+use App\Http\Requests\EmployeeClassRequest;
 
-class FinancialStatementController extends Controller
+class EmployeeClassController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $fs = new FinancialStatement;
-        return $fs->getAll();
+        $ec = new EmployeeClass;
+        return $ec->getAll();
     }
 
     /**
@@ -24,46 +24,46 @@ class FinancialStatementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FinancialStatementsRequest $request)
+    public function store(EmployeeClassRequest $request)
     {
-        $fs = new FinancialStatement;
-        return $fs->add($request->validated());
+        $ec = new EmployeeClass;
+        return $ec->add($request->validated());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\EmployeeClass  $employeeClass
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $fs = new FinancialStatement;
-        return $fs->getById($id);
+        $ec = new EmployeeClass;
+        return $ec->getById($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\EmployeeClass  $employeeClass
      * @return \Illuminate\Http\Response
      */
-    public function update(FinancialStatementsRequest $request)
+    public function update(EmployeeClassRequest $request)
     {
-        $fs = new FinancialStatement;
-        return $fs->updateRecord($request);
+        $ec = new EmployeeClass;
+        return $ec->updateRecord($request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FinancialStatement  $financialStatement
+     * @param  \App\EmployeeClass  $employeeClass
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $fs = new FinancialStatement;
-        return $fs->drop($id);
+        $ec = new EmployeeClass;
+        return $ec->drop($id);
     }
 }
