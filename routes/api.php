@@ -28,6 +28,7 @@ Route::resource('same-sexs','SameSexController')->middleware('auth:api');
 Route::resource('benefit-forms','BenefitFormController')->middleware('auth:api');
 Route::resource('payment-options','PaymentOptionController')->middleware('auth:api');
 Route::resource('financing-vehicle','FinancingVehicleController')->middleware('auth:api');
+Route::resource('type-of-vendors','TypeOfVendorController')->middleware('auth:api');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
