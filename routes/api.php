@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('users','UserController')->middleware('auth:api');
 Route::resource('financial-statements', 'FinancialStatementController');
+Route::resource('benefit-programs', 'BenefitProgramController');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
