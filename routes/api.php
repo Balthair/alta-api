@@ -22,6 +22,7 @@ Route::resource('financial-statements','FinancialStatementController')->middlewa
 Route::resource('employee-classes','EmployeeClassController')->middleware('auth:api');
 Route::resource('participant-types','ParticipantTypeController')->middleware('auth:api');
 Route::resource('participant-criterias','ParticipantCriteriaController')->middleware('auth:api');
+Route::resource('spouse-partners','SpousePartnerController')->middleware('auth:api');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
