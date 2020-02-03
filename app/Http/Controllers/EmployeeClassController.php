@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\EmployeeClass;
+use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeClassRequest;
 
 class EmployeeClassController extends Controller
@@ -49,7 +50,7 @@ class EmployeeClassController extends Controller
      * @param  \App\EmployeeClass  $employeeClass
      * @return \Illuminate\Http\Response
      */
-    public function update(EmployeeClassRequest $request)
+    public function update(Request $request)
     {
         $ec = new EmployeeClass;
         return $ec->updateRecord($request);

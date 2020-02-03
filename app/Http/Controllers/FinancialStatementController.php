@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FinancialStatement;
+use Illuminate\Http\Request;
 use App\Http\Requests\FinancialStatementsRequest;
 
 class FinancialStatementController extends Controller
@@ -49,7 +50,7 @@ class FinancialStatementController extends Controller
      * @param  \App\FinancialStatement  $financialStatement
      * @return \Illuminate\Http\Response
      */
-    public function update(FinancialStatementsRequest $request)
+    public function update(Request $request)
     {
         $fs = new FinancialStatement;
         return $fs->updateRecord($request);

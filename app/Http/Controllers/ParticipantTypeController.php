@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ParticipantType;
+use Illuminate\Http\Request;
 use App\Http\Requests\ParticipantTypeRequest;
 
 class ParticipantTypeController extends Controller
@@ -49,7 +50,7 @@ class ParticipantTypeController extends Controller
      * @param  \App\ParticipantType  $participantType
      * @return \Illuminate\Http\Response
      */
-    public function update(ParticipantTypeRequest $request)
+    public function update(Request $request)
     {
         $pType = new ParticipantType;
         return $pType->updateRecord($request);

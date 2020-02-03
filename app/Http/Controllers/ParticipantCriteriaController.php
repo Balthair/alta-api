@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ParticipantCriteria;
 use App\Http\Requests\ParticipantCriteriaRequest;
+use Illuminate\Http\Request;
 
 class ParticipantCriteriaController extends Controller
 {
@@ -49,7 +50,7 @@ class ParticipantCriteriaController extends Controller
      * @param  \App\ParticipantCriteria  $participantCriteria
      * @return \Illuminate\Http\Response
      */
-    public function update(ParticipantCriteriaRequest $request)
+    public function update(Request $request)
     {
         $pCriteria = new ParticipantCriteria;
         return $pCriteria->updateRecord($request);
