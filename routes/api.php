@@ -31,6 +31,9 @@ Route::resource('financing-vehicle','FinancingVehicleController')->middleware('a
 Route::resource('type-of-vendors','TypeOfVendorController')->middleware('auth:api');
 Route::resource('plan-entry-statuses','PlanEntryStatusController')->middleware('auth:api');
 Route::resource('retirement-plan-types','RetirementPlanTypeController')->middleware('auth:api');
+Route::resource('health-plan-coverage-list','HealthPlanCoverageController')->middleware('auth:api');
+Route::resource('primary-health-coverage-list','PrimaryHealthCoverageListController')->middleware('auth:api');
+Route::resource('health-delivery-vehicles','HealthDeliveryVehicleController')->middleware('auth:api');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
