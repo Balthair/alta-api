@@ -24,6 +24,8 @@ Route::resource('participant-types','ParticipantTypeController')->middleware('au
 Route::resource('participant-criterias','ParticipantCriteriaController')->middleware('auth:api');
 Route::resource('spouse-partners','SpousePartnerController')->middleware('auth:api');
 Route::resource('health-plan-coverage-list','HealthPlanCoverageController')->middleware('auth:api');
+Route::resource('primary-health-coverage-list','PrimaryHealthCoverageListController')->middleware('auth:api');
+Route::resource('health-delivery-vehicles','HealthDeliveryVehicleController')->middleware('auth:api');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
