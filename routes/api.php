@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => ['cors']], function () {
+//Route::group(['middleware' => ['cors']], function () { 
     Route::resource('users','UserController')->middleware('auth:api');
     Route::resource('financial-statements','FinancialStatementController')->middleware('auth:api');
     Route::resource('employee-classes','EmployeeClassController')->middleware('auth:api');
@@ -39,5 +39,5 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('login', 'AuthController@login');
     Route::get('logout', 'AuthController@logout');
     Route::get('user', 'AuthController@getAuthUser');
-});
+//});
 
