@@ -1,10 +1,8 @@
 <?php
-
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS, post, get');
-header("Access-Control-Max-Age", "3600");
-header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-header("Access-Control-Allow-Credentials", "true");
+header("Access-Control-Allow-Origin", "*")
+header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS")
+header("Access-Control-Allow-Headers", "X-Requested-With, Origin, Content-Type, X-Token-Auth, Authorization"); 
+header("Allow", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -63,4 +61,3 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
-
