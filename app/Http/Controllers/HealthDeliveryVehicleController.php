@@ -65,6 +65,6 @@ class HealthDeliveryVehicleController extends Controller
     public function destroy($id)
     {
         $hdv = new HealthDeliveryVehicle;
-        return $hdv->drop($id)
+        return $hdv->drop($id);
     }
 }

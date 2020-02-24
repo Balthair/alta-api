@@ -28,7 +28,7 @@ class PrimaryHealthCoverageListController extends Controller
     public function store(PrimaryHealthCoverageListRequest $request)
     {
         $phc = new PrimaryHealthCoverageList;
-        return $phc->add($request->validated())
+        return $phc->add($request->validated());
     }
 
     /**
@@ -65,6 +65,6 @@ class PrimaryHealthCoverageListController extends Controller
     public function destroy($id)
     {
         $phc = new PrimaryHealthCoverageList;
-        return $phc->drop($id)
+        return $phc->drop($id);
     }
 }
