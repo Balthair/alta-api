@@ -24,10 +24,10 @@ class CreateContactsTable extends Migration
             $table->string('mobile_number');
             $table->string('email');
             $table->timestamp('client_relationship_starter');
-            $table->timestamp('client_relationship_ended');
-            $table->timestamp('date_termination_company');
-            $table->timestamp('date_system_access_start');
-            $table->timestamp('date_system_access_ended');
+            $table->timestamp('client_relationship_ended')->nullable();
+            $table->timestamp('date_termination_company')->nullable();
+            $table->timestamp('date_system_access_start')->nullable();
+            $table->timestamp('date_system_access_ended')->nullable();
             $table->integer('corporate_id');
             $table->string('business_name');
             $table->integer('entity_name');

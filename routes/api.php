@@ -18,6 +18,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('users','UserController')->middleware('auth:api');
+Route::resource('financial-statements','FinancialStatementController')->middleware('auth:api');
+Route::resource('employee-classes','EmployeeClassController')->middleware('auth:api');
+Route::resource('participant-types','ParticipantTypeController')->middleware('auth:api');
+Route::resource('participant-criterias','ParticipantCriteriaController')->middleware('auth:api');
+Route::resource('spouse-partners','SpousePartnerController')->middleware('auth:api');
+Route::resource('benefit-programs','BenefitProgramController')->middleware('auth:api');
+Route::resource('same-sexs','SameSexController')->middleware('auth:api');
+Route::resource('benefit-forms','BenefitFormController')->middleware('auth:api');
+Route::resource('payment-options','PaymentOptionController')->middleware('auth:api');
+Route::resource('financing-vehicle','FinancingVehicleController')->middleware('auth:api');
+Route::resource('type-of-vendors','TypeOfVendorController')->middleware('auth:api');
+Route::resource('plan-entry-statuses','PlanEntryStatusController')->middleware('auth:api');
+Route::resource('retirement-plan-types','RetirementPlanTypeController')->middleware('auth:api');
+Route::resource('health-plan-coverage-list','HealthPlanCoverageController')->middleware('auth:api');
+Route::resource('primary-health-coverage-list','PrimaryHealthCoverageListController')->middleware('auth:api');
+Route::resource('health-delivery-vehicles','HealthDeliveryVehicleController')->middleware('auth:api');
+Route::resource('investment-funds-availables','InvestmentFundsAvailableController')->middleware('auth:api');
 
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
