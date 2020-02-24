@@ -1,8 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin", "*")
-header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS")
-header("Access-Control-Allow-Headers", "X-Requested-With, Origin, Content-Type, X-Token-Auth, Authorization"); 
-header("Allow", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
