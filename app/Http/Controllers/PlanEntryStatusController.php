@@ -50,10 +50,10 @@ class PlanEntryStatusController extends Controller
      * @param  \App\PlanEntryStatus  $planEntryStatus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, PlanEntryStatus $PlanEntryStatus)
     {
         $pes = new PlanEntryStatus;
-        return $pes->updateRecord($request);
+        return $pes->updateRecord($request->all(), $PlanEntryStatus);
     }
 
     /**

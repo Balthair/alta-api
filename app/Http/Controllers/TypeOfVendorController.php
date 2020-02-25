@@ -50,10 +50,10 @@ class TypeOfVendorController extends Controller
      * @param  \App\TypeOfVendor  $typeOfVendor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, TypeOfVendor $TypeOfVendor)
     {
         $tv = new TypeOfVendor;
-        return $tv->updateRecord($request);
+        return $tv->updateRecord($request->all(), $TypeOfVendor);
     }
 
     /**

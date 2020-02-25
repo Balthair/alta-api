@@ -50,10 +50,10 @@ class SameSexController extends Controller
      * @param  \App\SameSex  $sameSex
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, SameSex $SameSex)
     {
         $ss = new SameSex;
-        return $ss->updateRecord($request);
+        return $ss->updateRecord($request->all(), $SameSex);
     }
 
     /**

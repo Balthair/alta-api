@@ -50,10 +50,10 @@ class RetirementPlanTypeController extends Controller
      * @param  \App\RetirementPlanType  $retirementPlanType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, RetirementPlanType $RetirementPlanType)
     {
         $rpt = new RetirementPlanType;
-        return $rpt->updateRecord($request);
+        return $rpt->updateRecord($request->all(),$RetirementPlanType);
     }
 
     /**

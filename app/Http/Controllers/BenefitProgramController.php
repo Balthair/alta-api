@@ -50,10 +50,10 @@ class BenefitProgramController extends Controller
      * @param  \App\BenefitProgram  $benefitProgram
      * @return \Illuminate\Http\Response
      */
-    public function update(BenefitProgramRequest $request)
+    public function update(Request $request, BenefitProgram $BenefitProgram)
     {
         $bp = new BenefitProgram;
-        $bp->updateRecord($request);
+        $bp->updateRecord($request->all(), $BenefitProgram);
     }
 
     /**

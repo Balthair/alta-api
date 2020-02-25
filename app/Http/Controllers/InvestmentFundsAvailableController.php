@@ -50,10 +50,10 @@ class InvestmentFundsAvailableController extends Controller
      * @param  \App\InvestmentFundsAvailable  $investmentFundsAvailable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, InvestmentFundsAvailable $InvestmentFundsAvailable)
     {
         $ifa = new InvestmentFundsAvailable;
-        return $ifa->updateRecord($request);
+        return $ifa->updateRecord($request->all(), $InvestmentFundsAvailable);
     }
 
     /**

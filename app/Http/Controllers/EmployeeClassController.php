@@ -50,10 +50,10 @@ class EmployeeClassController extends Controller
      * @param  \App\EmployeeClass  $employeeClass
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, EmployeeClass $EmployeeClass)
     {
         $ec = new EmployeeClass;
-        return $ec->updateRecord($request);
+        return $ec->updateRecord($request->all(), $EmployeeClass);
     }
 
     /**

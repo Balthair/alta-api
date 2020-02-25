@@ -50,10 +50,10 @@ class ParticipantCriteriaController extends Controller
      * @param  \App\ParticipantCriteria  $participantCriteria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, ParticipantCriteria $ParticipantCriteria)
     {
         $pCriteria = new ParticipantCriteria;
-        return $pCriteria->updateRecord($request);
+        return $pCriteria->updateRecord($request->all(), $ParticipantCriteria);
     }
 
     /**

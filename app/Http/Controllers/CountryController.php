@@ -14,7 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $country = new User;
+        return $country->getAll();
     }
 
     /**
@@ -24,9 +25,8 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +35,8 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ct = new Country;
+        return $ct->add($request->validated());
     }
 
     /**
@@ -46,7 +47,8 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        $ct = new Country;
+        return $ct->getById($id);
     }
 
     /**
@@ -69,7 +71,8 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-        //
+        //$country = new Country;
+        return $country->updateRecord($request->all(), $country);
     }
 
     /**
@@ -80,6 +83,7 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        //
+        $ct = new Country;
+        return $ct->drop($id);
     }
 }

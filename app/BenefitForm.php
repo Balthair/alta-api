@@ -20,15 +20,36 @@ class BenefitForm extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
+    public function updateRecord($data, $BenefitForm){
+        
         $fs = $this->findOrFail($data->id);
         $fs->name = $data->name;
         $fs->description = $data->description;
 
         return $fs->save();
+
+        $fs = $BenefitForm;
+        $fs->fill($data);
+
+        if ($fs->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $fs
+            ], 200);
+        }
+
+        return $fs;
     }
 
     public function drop($id){
-        return $this->findOrFail($id)->delete();
+        $fs = $this->findOrFail($id)->delete();
+        
+        if($fs){
+            return response()->json([
+                'success' => 'deleted'
+            ], 200);
+        }
+
+        return $fs;
     }
 }

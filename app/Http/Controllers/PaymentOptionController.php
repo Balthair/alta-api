@@ -50,10 +50,10 @@ class PaymentOptionController extends Controller
      * @param  \App\PaymentOption  $paymentOption
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, PaymentOption $PaymentOption)
     {
         $po = new PaymentOption;
-        return $po->updateRecord($request);
+        return $po->updateRecord($request->all(), $PaymentOption);
     }
 
     /**

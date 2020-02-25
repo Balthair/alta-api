@@ -50,10 +50,10 @@ class BenefitFormController extends Controller
      * @param  \App\BenefitForm  $benefitForm
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, BenefitForm $BenefitForm)
     {
         $bf = new BenefitForm;
-        return $bf->updateRecord($request);
+        return $bf->updateRecord($request->all(), $BenefitForm);
     }
 
     /**

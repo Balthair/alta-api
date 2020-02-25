@@ -50,10 +50,10 @@ class FinancingVehicleController extends Controller
      * @param  \App\FinancingVehicle  $financingVehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, FinancingVehicle $FinancingVehicle)
     {
         $fv = new FinancingVehicle;
-        return $fv->updateRecord($request);
+        return $fv->updateRecord($request->all(), $FinancingVehicle);
     }
 
     /**

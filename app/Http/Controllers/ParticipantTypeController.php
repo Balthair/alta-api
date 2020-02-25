@@ -50,10 +50,10 @@ class ParticipantTypeController extends Controller
      * @param  \App\ParticipantType  $participantType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, ParticipantType $ParticipantType)
     {
         $pType = new ParticipantType;
-        return $pType->updateRecord($request);
+        return $pType->updateRecord($request->all(), $ParticipantType);
     }
 
     /**
