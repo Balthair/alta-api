@@ -50,10 +50,10 @@ class FinancialStatementController extends Controller
      * @param  \App\FinancialStatement  $financialStatement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, FinancialStatement $FinancialStatement)
     {
         $fs = new FinancialStatement;
-        return $fs->updateRecord($request);
+        return $fs->updateRecord($request->all(), $FinancialStatement);
     }
 
     /**

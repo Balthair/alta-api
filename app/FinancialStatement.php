@@ -20,15 +20,29 @@ class FinancialStatement extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $fs = $this->findOrFail($data->id);
-        $fs->name = $data->name;
-        $fs->description = $data->description;
+    public function updateRecord($data, $FinancialStatement){
+        $fs = $FinancialStatement;
+        $fs->fill($data);
 
-        return $fs->save();
+        if ($fs->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $fs
+            ], 200);
+        }
+
+        return $fs;
     }
 
     public function drop($id){
-        return $this->findOrFail($id)->delete();
+        $fs = $this->findOrFail($id)->delete();
+        
+        if($fs){
+            return response()->json([
+                'success' => 'deleted'
+            ], 200);
+        }
+
+        return $fs;
     }
 }

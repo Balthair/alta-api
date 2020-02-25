@@ -36,4 +36,8 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60 * 24 * 365
         ]);
     }
+
+    public function validateLogin() {
+        return true;
+    }
 }
