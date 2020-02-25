@@ -38,6 +38,8 @@ class AuthController extends Controller
     }
 
     public function validateLogin() {
-        return true;
+        return response()->json([
+            'validate' => true
+        ], 200);
     }
 }
