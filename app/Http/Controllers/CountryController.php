@@ -15,7 +15,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $country = new User;
+        $country = new Country;
         return $country->getAll();
     }
 
