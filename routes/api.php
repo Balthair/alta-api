@@ -41,6 +41,6 @@ Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
 Route::get('user', 'AuthController@getAuthUser');
 
-Route::get('validate-login', 'AuthController@validateLogin')->middleware('auth:api');
+Route::resource('validate-login', 'AuthController@validateLogin')->middleware('auth:api');
 //});
 
