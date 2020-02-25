@@ -36,7 +36,6 @@ class CountryController extends Controller
      */
     public function store(CountryRequest $request)
     {
-        var_dump($request);
         $ct = new Country;
         return $ct->add($request->validated());
     }
