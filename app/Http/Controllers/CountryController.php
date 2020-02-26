@@ -72,8 +72,8 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-        //$country = new Country;
-        return $country->updateRecord($request->all(), $country);
+        $ct = new Country;
+        return $ct->updateRecord($request->all(), $country);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\State;
 use Illuminate\Http\Request;
+use App\Http\Requests\StateRequest;
 
 class StateController extends Controller
 {
@@ -34,7 +35,7 @@ class StateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StateRequest $request)
     {
         $st = new State;
         return $st->add($request->validated());
@@ -71,7 +72,8 @@ class StateController extends Controller
      */
     public function update(Request $request, State $state)
     {
-        //
+        $st = new State;
+        return $st->updateRecord($request->all(), $state);
     }
 
     /**

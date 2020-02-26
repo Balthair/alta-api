@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\City;
 use Illuminate\Http\Request;
+use App\Http\Requests\CityRequest;
 
 class CityController extends Controller
 {
@@ -34,7 +35,7 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CityRequest $request)
     {
         $ct = new City;
         return $ct->add($request->validated());
@@ -71,7 +72,8 @@ class CityController extends Controller
      */
     public function update(Request $request, City $city)
     {
-        //
+        $ct = new City;
+        return $city->updateRecord($request->all(), $city);
     }
 
     /**
@@ -82,6 +84,7 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        //
+        $ct = new City;
+        return $ct->drop($id);
     }
 }
