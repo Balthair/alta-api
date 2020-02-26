@@ -9,7 +9,7 @@ class State extends Model
     protected $fillable = ['name', 'country_id'];
 
     public function getAll(){
-        return $this->get();
+        return $this->with('countries')->get();
     }
 
     public function getById($id){
@@ -44,5 +44,10 @@ class State extends Model
         }
 
         return $st;
+    }
+
+    public function countries()
+    {
+        return $this->belongsTo('App\Country', 'country_id');
     }
 }
