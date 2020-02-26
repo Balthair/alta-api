@@ -15,7 +15,7 @@ class StateController extends Controller
     public function index()
     {
         $state = new state;
-        return $city->getAll();
+        return $state->getAll();
     }
 
     /**
