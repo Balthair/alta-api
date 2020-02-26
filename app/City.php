@@ -9,7 +9,7 @@ class City extends Model
     protected $fillable = ['name', 'state_id'];
 
     public function getAll(){
-        return $this->whit('states')->get();
+        return $this->with('states')->get();
     }
 
     public function getById($id){
