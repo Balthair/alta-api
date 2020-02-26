@@ -14,7 +14,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $city = new City;
+        return $city->getAll();
     }
 
     /**
@@ -35,7 +36,8 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ct = new City;
+        return $ct->add($request->validated());
     }
 
     /**
