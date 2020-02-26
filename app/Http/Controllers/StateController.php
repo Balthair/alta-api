@@ -14,7 +14,8 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
+        $state = new state;
+        return $city->getAll();
     }
 
     /**
@@ -35,7 +36,8 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $st = new State;
+        return $st->add($request->validated());
     }
 
     /**
