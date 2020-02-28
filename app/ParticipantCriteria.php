@@ -20,12 +20,18 @@ class ParticipantCriteria extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $pCriteria = $this->findOrFail($data->id);
-        $pCriteria->name = $data->name;
-        $pCriteria->description = $data->description;
+    public function updateRecord($data, $ParticipantCriteria){
+        $pc = $ParticipantCriteria;
+        $pc->fill($data);
 
-        return $pCriteria->save();
+        if ($pc->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $pc
+            ], 200);
+        }
+
+        return $pc;
     }
 
     public function drop($id){

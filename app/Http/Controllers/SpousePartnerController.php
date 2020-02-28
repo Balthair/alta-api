@@ -50,10 +50,10 @@ class SpousePartnerController extends Controller
      * @param  \App\SpousePartner  $spousePartner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, SpousePartner $SpousePartner)
     {
         $sp = new SpousePartner;
-        return $sp->updateRecord($id, $request);
+        return $sp->updateRecord($request->all(), $SpousePartner);
     }
 
     /**

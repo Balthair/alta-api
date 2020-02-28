@@ -50,10 +50,10 @@ class PrimaryHealthCoverageListController extends Controller
      * @param  \App\PrimaryHealthCoverageList  $primaryHealthCoverageList
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, PrimaryHealthCoverageList $PrimaryHealthCoverageList)
     {
         $phc = new PrimaryHealthCoverageList;
-        return $phc->updateRecord($id, $request);
+        return $phc->updateRecord($request->all(), $PrimaryHealthCoverageList);
     }
 
     /**

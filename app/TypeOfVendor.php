@@ -20,12 +20,18 @@ class TypeOfVendor extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $fs = $this->findOrFail($data->id);
-        $fs->name = $data->name;
-        $fs->description = $data->description;
+    public function updateRecord($data, $TypeOfVendor){
+        $tv = $TypeOfVendor;
+        $tv->fill($data);
 
-        return $fs->save();
+        if ($tv->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $tv
+            ], 200);
+        }
+
+        return $tv;
     }
 
     public function drop($id){

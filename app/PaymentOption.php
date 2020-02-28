@@ -20,12 +20,18 @@ class PaymentOption extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $fs = $this->findOrFail($data->id);
-        $fs->name = $data->name;
-        $fs->description = $data->description;
+    public function updateRecord($data, $PaymentOption){
+        $pc = $PaymentOption;
+        $pc->fill($data);
 
-        return $fs->save();
+        if ($pc->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $pc
+            ], 200);
+        }
+
+        return $pc;
     }
 
     public function drop($id){

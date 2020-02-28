@@ -20,12 +20,18 @@ class SpousePartner extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($id, $data){
-        $pType = $this->findOrFail($id);
-        $pType->name = $data->name;
-        $pType->description = $data->description;
+    public function updateRecord($data, $SpousePartner){
+        $ss = $SameSex;
+        $ss->fill($data);
 
-        return $pType->save();
+        if ($ss->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $ss
+            ], 200);
+        }
+
+        return $ss;
     }
 
     public function drop($id){

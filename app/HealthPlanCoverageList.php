@@ -20,9 +20,18 @@ class HealthPlanCoverageList extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($id, $data){
-        $this->findOrFail($id);
-        return $this->save($data);
+    public function updateRecord($data, $HealthPlanCoverageList){
+        $hv = $HealthDeliveryVehicle;
+        $hv->fill($data);
+
+        if ($hv->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $hv
+            ], 200);
+        }
+
+        return $hv;
     }
 
     public function drop($id){

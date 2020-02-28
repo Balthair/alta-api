@@ -20,12 +20,18 @@ class PrimaryHealthCoverageList extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($id, $data){
-        $pType = $this->findOrFail($id);
-        $pType->name = $data->name;
-        $pType->description = $data->description;
+    public function updateRecord($data, $PrimaryHealthCoverageList){
+        $pc = $PrimaryHealthCoverageList;
+        $pc->fill($data);
 
-        return $pType->save();
+        if ($pc->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $pc
+            ], 200);
+        }
+
+        return $pc;
     }
 
     public function drop($id){

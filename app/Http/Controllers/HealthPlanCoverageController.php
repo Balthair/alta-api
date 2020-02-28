@@ -51,10 +51,10 @@ class HealthPlanCoverageController extends Controller
      * @param  \App\HealthPlanCoverageList  $healthPlanCoverage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, HealthPlanCoverageList $HealthPlanCoverageList)
     {
         $hpc = new HealthPlanCoverageList;
-        return $hpc->updateRecord($id, $request);
+        return $hpc->updateRecord($request->all(), $HealthPlanCoverageList);
     }
 
     /**

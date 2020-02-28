@@ -20,12 +20,18 @@ class SameSex extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $fs = $this->findOrFail($data->id);
-        $fs->name = $data->name;
-        $fs->description = $data->description;
+    public function updateRecord($data, $SameSex){
+        $ss = $SameSex;
+        $ss->fill($data);
 
-        return $fs->save();
+        if ($ss->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $ss
+            ], 200);
+        }
+
+        return $ss;
     }
 
     public function drop($id){

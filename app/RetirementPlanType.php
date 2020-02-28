@@ -20,12 +20,18 @@ class RetirementPlanType extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $rpt = $this->findOrFail($data->id);
-        $rpt->name = $data->name;
-        $rpt->description = $data->description;
+    public function updateRecord($data, $RetirementPlanType){
+        $rp = $RetirementPlanType;
+        $rp->fill($data);
 
-        return $rpt->save();
+        if ($rp->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $rp
+            ], 200);
+        }
+
+        return $rp;
     }
 
     public function drop($id){

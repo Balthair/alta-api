@@ -20,12 +20,18 @@ class InvestmentFundsAvailable extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $ifa = $this->findOrFail($data->id);
-        $ifa->name = $data->name;
-        $ifa->description = $data->description;
+    public function updateRecord($data, $InvestmentFundsAvailable){
+        $ifa = $InvestmentFundsAvailable;
+        $ifa->fill($data);
 
-        return $ifa->save();
+        if ($ifa->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $ifa
+            ], 200);
+        }
+
+        return $ifa;
     }
 
     public function drop($id){

@@ -20,12 +20,18 @@ class FinancingVehicle extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $fs = $this->findOrFail($data->id);
-        $fs->name = $data->name;
-        $fs->description = $data->description;
+    public function updateRecord($data, $FinancingVehicle){
+        $fs = $FinancingVehicle;
+        $fs->fill($data);
 
-        return $fs->save();
+        if ($fs->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $fs
+            ], 200);
+        }
+
+        return $fs;
     }
 
     public function drop($id){

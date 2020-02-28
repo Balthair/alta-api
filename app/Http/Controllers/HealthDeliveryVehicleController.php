@@ -50,10 +50,10 @@ class HealthDeliveryVehicleController extends Controller
      * @param  \App\HealthDeliveryVehicle  $healthDeliveryVehicle
      * @return \Illuminate\Http\Response
      */
-    public function update($id, HealthDeliveryVehicle $healthDeliveryVehicle)
+    public function update(Request $request, HealthDeliveryVehicle $healthDeliveryVehicle)
     {
         $hdv = new HealthDeliveryVehicle;
-        return $hdv->updateRecord($id, $healthDeliveryVehicle);
+        return $hdv->updateRecord($request->all(), $healthDeliveryVehicle);
     }
 
     /**

@@ -20,12 +20,18 @@ class PlanEntryStatus extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $pes = $this->findOrFail($data->id);
-        $pes->name = $data->name;
-        $pes->description = $data->description;
+    public function updateRecord($data, $PlanEntryStatus){
+        $pc = $PlanEntryStatus;
+        $pc->fill($data);
 
-        return $pes->save();
+        if ($pc->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $pc
+            ], 200);
+        }
+
+        return $pc;
     }
 
     public function drop($id){

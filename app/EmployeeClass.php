@@ -20,12 +20,20 @@ class EmployeeClass extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($data){
-        $ec = $this->findOrFail($data->id);
-        $ec->name = $data->name;
-        $ec->description = $data->description;
+    public function updateRecord($data, $EmployeeClass){
 
-        return $ec->save();
+        $ec = $FinancialStatement;
+        $ec->fill($data->name);
+
+        if ($ec->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $ec
+            ], 200);
+        }
+
+        return $ec;
+
     }
 
     public function drop($id){

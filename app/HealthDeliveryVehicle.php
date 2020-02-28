@@ -20,12 +20,18 @@ class HealthDeliveryVehicle extends Model
         return $this->create($data);
     }
 
-    public function updateRecord($id, $data){
-        $pType = $this->findOrFail($id);
-        $pType->name = $data->name;
-        $pType->description = $data->description;
+    public function updateRecord($data, $HealthDeliveryVehicle){
+        $hv = $HealthDeliveryVehicle;
+        $hv->fill($data);
 
-        return $pType->save();
+        if ($hv->save()) {
+            return response()->json([
+                'success' => 'Record updated',
+                $hv
+            ], 200);
+        }
+
+        return $hv;
     }
 
     public function drop($id){
